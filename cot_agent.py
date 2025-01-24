@@ -46,27 +46,27 @@ async def final_conclusion(ctx: RunContext[CoTDependencies], analysis: str) -> s
 async def include_context(ctx: RunContext[CoTDependencies]) -> str:
     return f"The user has asked: {ctx.deps.user_question}. Think step-by-step using these facts: {ctx.deps.facts}."
 
-deps = CoTDependencies(
-        facts=["Fact 1: relevant data", "Fact 2: irrelevant data", "Fact 3: relevant insight"],
-        user_question="What can we deduce from relevant data?"
-    )
-
-    # Execute the agent with a complex query
-result = await agent.run("Explain why the sky appears blue during the day but red at sunset.", deps=deps)
-print(result.data)
-
-# async def main():
-#     # Define dependencies
-#     deps = CoTDependencies(
+# deps = CoTDependencies(
 #         facts=["Fact 1: relevant data", "Fact 2: irrelevant data", "Fact 3: relevant insight"],
 #         user_question="What can we deduce from relevant data?"
 #     )
 
 #     # Execute the agent with a complex query
-#     result = await agent.run("How shoudl i determine what niche of ai engineering i should focus on?", deps=deps)
-#     print(result.data)
+# result = await agent.run("Explain why the sky appears blue during the day but red at sunset.", deps=deps)
+# print(result.data)
 
-# # Use an event loop to execute the main function
-# import asyncio
-# asyncio.run(main())
+async def main():
+    # Define dependencies
+    deps = CoTDependencies(
+        facts=["Fact 1: relevant data", "Fact 2: irrelevant data", "Fact 3: relevant insight"],
+        user_question="What can we deduce from relevant data?"
+    )
+
+    # Execute the agent with a complex query
+    result = await agent.run("Explain why the sky appears blue during the day but red at sunset.", deps=deps)
+    print(result.data)
+
+# Use an event loop to execute the main function
+import asyncio
+asyncio.run(main())
 
