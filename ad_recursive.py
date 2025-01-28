@@ -98,7 +98,7 @@ async def evaluator_system_prompt(ctx: RunContext[EvaluatorInput]) -> str:
 
 ###################################
 # Example usage
-product_description = "an image upscaler for the perfect photogpraph"
+product_description = "an no code tool to bui8ld better workflows."
 ###################################
 
 def print_markdown(label, message):
